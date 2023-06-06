@@ -71,10 +71,19 @@ function operate(number1,operator,number2){
                 //start collecting the second number which it also displays on the screen
             {
                 display.textContent = "";
-                number1 = Number(interimNumber);
-                interimNumber="";
                 operator = box.textContent;
+                if(number1===""){
+                    number1 = Number(interimNumber);
+                }
+                else{
+                    number2=Number(interimNumber)
+                    number1 = operate(number1,operator,number2)
+                    display.textContent = number1
+
+                }
+                
                 miniDisplay.textContent += " " + box.textContent + " ";
+                interimNumber="";
             }
             else if(box.textContent === "="){
                 number2=Number(interimNumber);
